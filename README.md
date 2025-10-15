@@ -35,7 +35,7 @@ Stepwise Workflow
 
 > data_rice <- read.csv("pathway/Rice_project/Rice_GRIN-Global.csv")
 
-## Convert columns into numeric
+#### Convert columns into numeric
 > data_rice$AMYLOSE <- as.numeric(data_rice$AMYLOSE)
 
 > data_rice$`KERNEL.LENGTH.WIDTH.RATIO` <- as.numeric(data_rice$`KERNEL.LENGTH.WIDTH.RATIO`)
@@ -48,7 +48,7 @@ Stepwise Workflow
 
 > traits_rice <- c("AMYLOSE","KERNEL.LENGTH.WIDTH.RATIO","LENGTH.OF.KERNEL","WIDTH.OF.KERNEL","SALT.TOLERANCE")
 
-## plot1 - correlation matrix
+#### Plot1 - Correlation Matrix
 > cm <- cor(data_rice[traits_rice], use = "pairwise.complete.obs", method = "pearson")
 
 > corrplot(cm,method = "circle",type = "lower",diag = FALSE,tl.col = "red",tl.cex = 0.5,
@@ -58,15 +58,15 @@ mar = c(0,0,2,0),
 title = "Correlation between traits (Rice-GRIN)"
 )
 
-## trying to visualize number of origins in the data file
+#### To visualize number of origins in the data file
 > length(unique(data_rice$ORIGIN))
 
 > unique(data_rice$ORIGIN)
 
-## no of origins in usa
+#### No of origins in USA
 > sum(grepl("United States", data_rice$ORIGIN, ignore.case = TRUE))
 
-## plot2 - scatter plot between amylose and kernel length/width ratio
+#### Plot2 - Scatter Plot Between Amylose and Kernel Length/Width Ratio
 > r_val <- cor(data_rice$AMYLOSE, data_rice$`KERNEL.LENGTH.WIDTH.RATIO`, use =
 "pairwise.complete.obs")
 
