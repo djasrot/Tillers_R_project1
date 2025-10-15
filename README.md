@@ -96,6 +96,7 @@ length/width ratio (R = 0.48) and slightly negatively correlated with salt toler
 the kernel and negatively correlated with salt tolerance (R = -0.19).
 
 <img width="378" height="379" alt="image" src="https://github.com/user-attachments/assets/a8895406-2181-44fc-b255-4f2e53df93b7" />
+
 Fig.1 Correlation matrix between seed traits and salt tolerance. The color represents the direction of correlation: blue indicates positive correlation, whereas red indicates negative correlation. The size of the circle represents the magnitude of correlation between traits.
 
 
