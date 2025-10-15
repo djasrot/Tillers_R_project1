@@ -85,7 +85,7 @@ y = "Kernel Length/Width Ratio") +
 theme(panel.border = element_rect(color = "black", fill = NA, linewidth = 1),
 plot.title = element_text(hjust = 0.5, face = "bold"))
 
-ggsave("scatter_amylose_vs_ratio_v2.pdf", p, width = 8, height = 6, dpi = 300)
+> ggsave("scatter_amylose_vs_ratio_v2.pdf", p, width = 8, height = 6, dpi = 300)
 
 12) Ran the R script file using “Rscript codes.R”
 13) Two plots were generated and saved
