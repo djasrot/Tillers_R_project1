@@ -1,18 +1,18 @@
 # Tillers_R_project1
 This repo contains R script generating a plot related to rice data
 Stepwise Workflow
-1) Started OnDemand and navigated to my personal directory
-2) Uploaded my file “Rice_GRIN-Global.csv” using the upload function in the “On demand”
-3) Logged into the HPC on the terminal using
+1) Start OnDemand and navigated to your personal directory
+2) Upload your file “Rice_GRIN-Global.csv” using the upload function in the “On demand”
+3) Logg into your HPC on the terminal using
    “ssh username@login.palmetto.clemson.edu”
-5) My folder:
+5) Go to your folder:
    cd /pathway_to_directory
-7) Created a new directory: mkdir Rice_project
-8) Created an R file: touch codes.R
-9) Requested computing nodes and memory using salloc:
+7) Create a new directory using: mkdir Rice_project
+8) Create an R file using: touch codes.R
+9) Request computing nodes and memory using salloc:
     salloc --nodes=1 --ntasks=32 --mem=12G --time=2:00:00 --partition=floret
-11) Loaded the R module: module load r/4.4.0 and started R
-12) Installed required packages in R
+11) Load the R module: module load r/4.4.0 and start R
+12) Install required packages in R
 > install.packages (“ggplot2”)
 
 > install.packages (“tidyverse”)
@@ -21,7 +21,7 @@ Stepwise Workflow
 
 > install.packages (“corrplot”)
 
-10) Opened a file and wrote R code
+10) Open a file and write R codes
 • vim codes.R and saved file using “escape” then “:wq!”
 
 12) R code in the file
@@ -35,7 +35,7 @@ Stepwise Workflow
 
 > data_rice <- read.csv("pathway/Rice_project/Rice_GRIN-Global.csv")
 
-# Convert columns into numeric
+## Convert columns into numeric
 > data_rice$AMYLOSE <- as.numeric(data_rice$AMYLOSE)
 
 > data_rice$`KERNEL.LENGTH.WIDTH.RATIO` <- as.numeric(data_rice$`KERNEL.LENGTH.WIDTH.RATIO`)
@@ -48,7 +48,7 @@ Stepwise Workflow
 
 > traits_rice <- c("AMYLOSE","KERNEL.LENGTH.WIDTH.RATIO","LENGTH.OF.KERNEL","WIDTH.OF.KERNEL","SALT.TOLERANCE")
 
-#plot1 - correlation matrix
+## plot1 - correlation matrix
 > cm <- cor(data_rice[traits_rice], use = "pairwise.complete.obs", method = "pearson")
 
 > corrplot(cm,method = "circle",type = "lower",diag = FALSE,tl.col = "red",tl.cex = 0.5,
@@ -58,15 +58,15 @@ mar = c(0,0,2,0),
 title = "Correlation between traits (Rice-GRIN)"
 )
 
-#trying to visualize number of origins in the data file
+## trying to visualize number of origins in the data file
 > length(unique(data_rice$ORIGIN))
 
 > unique(data_rice$ORIGIN)
 
-#no of origins in usa
+## no of origins in usa
 > sum(grepl("United States", data_rice$ORIGIN, ignore.case = TRUE))
 
-#plot2 - scatter plot between amylose and kernel length/width ratio
+## plot2 - scatter plot between amylose and kernel length/width ratio
 > r_val <- cor(data_rice$AMYLOSE, data_rice$`KERNEL.LENGTH.WIDTH.RATIO`, use =
 "pairwise.complete.obs")
 
@@ -87,13 +87,10 @@ plot.title = element_text(hjust = 0.5, face = "bold"))
 
 > ggsave("scatter_amylose_vs_ratio_v2.pdf", p, width = 8, height = 6, dpi = 300)
 
-12) Ran the R script file using “Rscript codes.R”
-13) Two plots were generated and saved
+12) Run the R script file using “Rscript codes.R”
+13) Two plots will be generated
 a) Correlation plot:
-Correlation analysis showed that amylose content is moderately correlated with kernel
-length/width ratio (R = 0.48) and slightly negatively correlated with salt tolerance (r = -
-0.04). Whereas the length of the kernel is strongly correlated with the width (R = 0.71) of
-the kernel and negatively correlated with salt tolerance (R = -0.19).
+Correlation analysis showed that amylose content is moderately correlated with kernel length/width ratio (R = 0.48) and slightly negatively correlated with salt tolerance (r = - 0.04). Whereas the length of the kernel is strongly correlated with the width (R = 0.71) of the kernel and negatively correlated with salt tolerance (R = -0.19).
 
 <img width="378" height="379" alt="image" src="https://github.com/user-attachments/assets/a8895406-2181-44fc-b255-4f2e53df93b7" />
 
