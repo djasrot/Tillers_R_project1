@@ -95,4 +95,5 @@ length/width ratio (R = 0.48) and slightly negatively correlated with salt toler
 0.04). Whereas the length of the kernel is strongly correlated with the width (R = 0.71) of
 the kernel and negatively correlated with salt tolerance (R = -0.19).
 
+<img width="378" height="379" alt="image" src="https://github.com/user-attachments/assets/a8895406-2181-44fc-b255-4f2e53df93b7" />
 
