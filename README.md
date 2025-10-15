@@ -3,7 +3,7 @@ This repo contains R script generating a plot related to rice data
 Stepwise Workflow
 1) Start OnDemand and navigated to your personal directory
 2) Upload your file “Rice_GRIN-Global.csv” using the upload function in the “On demand”
-3) Logg into your HPC on the terminal using
+3) Log into your HPC on the terminal using
    “ssh username@login.palmetto.clemson.edu”
 5) Go to your folder:
    cd /pathway_to_directory
@@ -52,11 +52,7 @@ Stepwise Workflow
 > cm <- cor(data_rice[traits_rice], use = "pairwise.complete.obs", method = "pearson")
 
 > corrplot(cm,method = "circle",type = "lower",diag = FALSE,tl.col = "red",tl.cex = 0.5,
-addCoef.col = "black",
-number.cex = 0.7,
-mar = c(0,0,2,0),
-title = "Correlation between traits (Rice-GRIN)"
-)
+addCoef.col = "black",number.cex = 0.7, mar = c(0,0,2,0), title = "Correlation between traits (Rice-GRIN)")
 
 #### To visualize number of origins in the data file
 > length(unique(data_rice$ORIGIN))
